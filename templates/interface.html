@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Modification</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 1s ease;
+            font-family: Arial, Helvetica, sans-serif;
+
+
+        }
+        
+        
+
+        .container {
+            background-color: white;
+            width: 50%;
+            height: 70%;
+            border: 0px solid black;
+            box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
+            /* Shadow effect */
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #31b27c;
+            font-weight: 700;
+            color: black;
+            border-width: 4px;
+            border-color: black;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+        }
+
+        .btn:hover {
+            background-color: #b271dc;
+        }
+
+        .upload-box {
+            width: 100%;
+            height: 100%;
+            border: 3px dashed #333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #31b27c6c;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .upload-box:hover {
+            background-color: #b271dc6c;
+        }
+
+        .upload-box input {
+            display: none;
+        }
+
+        .upload-box.dragover {
+            background-color: #b271dc6c;
+        }
+
+
+        .upload-text {
+            color: #333;
+            font-weight: bold;
+        }
+
+        #image-preview {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .delete-btn-on-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            display: none;
+            /* Hidden until image is uploaded */
+        }
+    </style>
+
+    <script>
+        function getRandomLightColor() {
+            // Generate high values (closer to FF) for brighter colors
+            const r = Math.floor(Math.random() * 56) + 200; // Between 200-255
+            const g = Math.floor(Math.random() * 56) + 200; // Between 200-255
+            const b = Math.floor(Math.random() * 56) + 200; // Between 200-255
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = getRandomLightColor();
+        }
+
+        setInterval(changeBackgroundColor, 5000); // Change color every 10 seconds
+
+
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Upload Image</h1>
+        <p>Upload a .jpg version of the image to be modified.</p>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label class="upload-box" id="drop-area">
+                <input type="file" id="fileInput" name="image" accept="image/*">
+                <span class="upload-text">Click or Drag & Drop an Image</span>
+            </label>
+
+            <div>
+                <img id="image-preview" src="#" alt="Image Preview" style="display: none;">
+            </div>
+
+            <select name="deficiency">
+                <option value="red-green">Red-Green</option>
+                <option value="yellow-blue">Yellow-Blue</option>
+            </select>
+
+            <button class="btn" type="submit">Upload</button>
+        </form>
+
+        
+
+
+    </div>
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('image-preview');
+
+        // Drag & Drop Effects
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.classList.add('dragover');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('dragover');
+        });
+
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.classList.remove('dragover');
+            const file = event.dataTransfer.files[0];
+            handleFile(file);
+        });
+
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            handleFile(file);
+        });
+
+        // File Preview Logic
+        function handleFile(file) {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+
+                    // Hide the upload box
+                    dropArea.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert("Please upload a valid image file.");
+            }
+        }
+
+    </script>
+
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul style="color: red;">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+</body>
+
+</html>

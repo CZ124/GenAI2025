@@ -71,11 +71,11 @@ def index():
             return redirect(request.url)
 
         # Adjust image hue based on the selected deficiency
-        adjusted_img = adjust_hue(img, deficiency)
+        adjusted_img = adjust_hue(img, 'red-green')
         # Convert the processed image to a Base64 string for display
         img_base64 = convert_image_to_base64(adjusted_img)
         return render_template('result.html', image_data=img_base64)
-    return render_template('index.html')
+    return render_template('interface.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

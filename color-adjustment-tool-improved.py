@@ -117,8 +117,23 @@ from flask import Flask, request, send_file, render_template
 import cv2
 import numpy as np
 import tempfile
+import webbrowser
+import time
+
+
 
 app = Flask(__name__)
+
+
+def open_webpage():
+    # URL for the webpage you want to open
+    url = "http://127.0.0.1:5000"  # Update with the desired URL
+    webbrowser.open(url)
+    
+# Optional: Add a small delay to ensure the browser opens properly.
+time.sleep(2)
+open_webpage()
+
 
 @app.route('/')
 def index():
@@ -151,3 +166,5 @@ def adjust_image():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+    

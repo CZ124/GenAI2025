@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adjusted Artwork</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+    img { max-width: 80%; height: auto; margin-top: 20px; border: 2px solid #ccc; }
+    a { display: inline-block; margin-top: 20px; font-size: 1.2em; text-decoration: none; color: #007BFF; }
+  </style>
+</head>
+<body>
+  <h1>Your Adjusted Artwork</h1>
+  <p>The image has been processed based on your color deficiency type.</p>
+  <img src="data:image/jpeg;base64,{{ image_data }}" alt="Adjusted Artwork">
+  <br>
+  <a href="{{ url_for('index') }}">Try another image</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Correction for Accessible Art</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    label, select, input, button { font-size: 1.2em; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Accessible Art Color Correction</h1>
+  <p>Test your color vision deficiency and upload an artwork to adjust its hue.</p>
+  <form method="post" enctype="multipart/form-data">
+    <label for="deficiency">Select your deficiency type:</label>
+    <select name="deficiency" id="deficiency" required>
+      <option value="">--Select an option--</option>
+      <option value="red-green">Red-Green Color Blindness</option>
+      <option value="yellow-blue">Yellow-Blue Color Blindness</option>
+    </select>
+    <br>
+    <label for="image">Upload an image:</label>
+    <input type="file" name="image" id="image" accept="image/*" required>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul style="color: red;">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>

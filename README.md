@@ -7,3 +7,12 @@ For the completed final version of our HueHarmonics web app, please download the
 3. View the filtered/hue-shifted resulting image.
 
 [1] 234 Birds, "Title of the Page or Image," 234 Birds, [Online]. Available: https://234birds.org/. Accessed: Mar. 22, 2025.
+
+[2] Farnsworth D. The Farnsworth Dichotomous Test for Color Blindness Panel D-15 Manual. New York, The Psychological Corp., 1947, pp. 1-8. [Online]. 
+    Available: https://www.sciencedirect.com/science/article/abs/pii/0002939466916734. Accessed: Mar. 22, 2025.
+
+[3] G. M. Marmor and M. R. Holder, "Color Vision," in StatPearls, StatPearls Publishing, Treasure Island (FL), 2024. [Online]. Available: 
+    https://www.ncbi.nlm.nih.gov/books/NBK217816/
+
+[4] J. M. Barbur, "Understanding colour vision deficiency," The British Journal of Ophthalmology, vol. 88, no. 8, pp. 986–995, Aug. 2004. [Online]. 
+    Available: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4014780/

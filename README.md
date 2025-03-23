@@ -1,11 +1,14 @@
 # GenAI2025
 GenAI Hackathon Project March 2025
 
-**HueHarmonics** is a personalized and web-based application designed to help individuals with color vision deficiency see digital images more clearly. 
+
+#**HueHarmonics** is a personalized and web-based application designed to help individuals with color vision deficiency see digital images more clearly. 
+
 
 For the completed final version of our HueHarmonics web app, please download the my_project.zip, and run app.py after extract the zip file in local. Then, click on the IP link displayed in your console, and it will take you to the webpage of our app.
 
-**What does HueHarmonics do:**
+
+#**What does HueHarmonics do:**
 1. Takes a D-15 Color Vision Test
    Users take an Farnsworth D-15 color vision test. Based on their arrangement of colored tiles, we calculate 3 metrics: confusion angle,
    confusion index, and total error score — which together define their unique type and severity of color blindness.
@@ -18,7 +21,7 @@ For the completed final version of our HueHarmonics web app, please download the
    
 4. The adjusted image will be shown right away, helping users experience more vibrant and accurate colors!
 
-**What is a Farnsworth D15 Color Blind Test:**
+#**What is a Farnsworth D15 Color Blind Test:**
 Farnsworth D-15 test is a color blindness test that uses a set of colored tiles. When taking the test, people have to arrange these colored tiles in the correct order based on their perception of different colors. Colorblind people will have difficulties in arranging the given colors and make mistakes. Based on these mistakes and the resulting confusion vector(including confusion angle, confusion index, and total error score), the type of color blindness and its severity can be calculated.
 
 

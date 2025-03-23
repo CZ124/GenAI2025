@@ -149,7 +149,7 @@ def index():
     </div>
     {% for cap in draggable_caps %}
       <div class="cap" draggable="true" data-capno="{{ cap.CapNo }}" style="background-color: rgb({{cap.R}}, {{cap.G}}, {{cap.B}});">
-        {{ cap.CapNo }}
+         
       </div>
     {% endfor %}
   </div>

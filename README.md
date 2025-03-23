@@ -27,6 +27,7 @@ Farnsworth D-15 test is a color blindness test that uses a set of colored tiles.
 
 
 **References:**
+
 [1] 234 Birds, "Title of the Page or Image," 234 Birds, [Online]. Available: https://234birds.org/. Accessed: Mar. 22, 2025.
 
 [2] Farnsworth D. The Farnsworth Dichotomous Test for Color Blindness Panel D-15 Manual. New York, The Psychological Corp., 1947, pp. 1-8. [Online]. 
